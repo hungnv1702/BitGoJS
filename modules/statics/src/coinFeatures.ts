@@ -533,6 +533,18 @@ export const OPETH_FEATURES = [
   CoinFeature.SHARED_EVM_MESSAGE_SIGNING,
   CoinFeature.STUCK_TRANSACTION_MANAGEMENT_TSS,
 ];
+export const HEMI_FEATURES = [
+  ...ETH_FEATURES,
+  CoinFeature.TSS,
+  CoinFeature.TSS_COLD,
+  CoinFeature.MPCV2,
+  CoinFeature.MULTISIG_COLD,
+  CoinFeature.EVM_WALLET,
+  CoinFeature.USES_NON_PACKED_ENCODING_FOR_TXDATA,
+  CoinFeature.ETH_ROLLUP_CHAIN,
+  CoinFeature.EIP1559,
+  CoinFeature.SHARED_EVM_MESSAGE_SIGNING,
+];
 export const ZKETH_FEATURES = [
   ...ETH_FEATURES,
   CoinFeature.MULTISIG_COLD,

@@ -1354,6 +1354,26 @@ class OptimismTestnet extends Testnet implements EthereumNetwork {
   batcherContractAddress = '0xebe27913fcc7510eadf10643a8f86bf5492a9541';
 }
 
+class Hemi extends Mainnet implements EthereumNetwork {
+  name = 'Hemi';
+  family = CoinFamily.HEMI;
+  explorerUrl = 'https://explorer.hemi.xyz/tx/';
+  accountExplorerUrl = 'https://explorer.hemi.xyz/address/';
+  chainId = 43111;
+  nativeCoinOperationHashPrefix = '43111';
+  tokenOperationHashPrefix = '43111-ERC20';
+}
+
+class HemiTestnet extends Testnet implements EthereumNetwork {
+  name = 'HemiTestnet';
+  family = CoinFamily.HEMI;
+  explorerUrl = 'https://testnet.explorer.hemi.xyz/tx/';
+  accountExplorerUrl = 'https://testnet.explorer.hemi.xyz/address/';
+  chainId = 743111;
+  nativeCoinOperationHashPrefix = '743111';
+  tokenOperationHashPrefix = '743111-ERC20';
+}
+
 class ZkSync extends Mainnet implements EthereumNetwork {
   name = 'ZkSync';
   family = CoinFamily.ZKETH;
@@ -2448,6 +2468,7 @@ export const Networks = {
     fantom: Object.freeze(new Fantom()),
     morph: Object.freeze(new Morph()),
     morpheth: Object.freeze(new MorphETH()),
+    hemi: Object.freeze(new Hemi()),
     optimism: Object.freeze(new Optimism()),
     osmo: Object.freeze(new Osmo()),
     rbtc: Object.freeze(new Rbtc()),
@@ -2562,6 +2583,7 @@ export const Networks = {
     fantom: Object.freeze(new FantomTestnet()),
     morph: Object.freeze(new MorphTestnet()),
     morpheth: Object.freeze(new MorphETHTestnet()),
+    hemi: Object.freeze(new HemiTestnet()),
     optimism: Object.freeze(new OptimismTestnet()),
     osmo: Object.freeze(new OsmoTestnet()),
     rbtc: Object.freeze(new RbtcTestnet()),

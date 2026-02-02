@@ -100,6 +100,7 @@ import {
   Gteth,
   Hash,
   Hbar,
+  Hemi,
   Hteth,
   Icp,
   Initia,
@@ -179,6 +180,7 @@ import {
   TfiatUsd,
   Thash,
   Thbar,
+  Themi,
   Tia,
   Ticp,
   Tinitia,
@@ -285,6 +287,7 @@ export function registerCoinConstructors(coinFactory: CoinFactory, coinMap: Coin
   coinFactory.register('gteth', Gteth.createInstance);
   coinFactory.register('hash', Hash.createInstance);
   coinFactory.register('hbar', Hbar.createInstance);
+  coinFactory.register('hemi', Hemi.createInstance);
   coinFactory.register('hteth', Hteth.createInstance);
   coinFactory.register('lnbtc', Lnbtc.createInstance);
   coinFactory.register('ltc', Ltc.createInstance);
@@ -357,6 +360,7 @@ export function registerCoinConstructors(coinFactory: CoinFactory, coinMap: Coin
   coinFactory.register('tmon', Tmon.createInstance);
   coinFactory.register('thash', Thash.createInstance);
   coinFactory.register('thbar', Thbar.createInstance);
+  coinFactory.register('themi', Themi.createInstance);
   coinFactory.register('ticp', Ticp.createInstance);
   coinFactory.register('tinitia', Tinitia.createInstance);
   coinFactory.register('tinjective', Tinjective.createInstance);
@@ -715,6 +719,8 @@ export function getCoinConstructor(coinName: string): CoinConstructor | undefine
       return Hash.createInstance;
     case 'hbar':
       return Hbar.createInstance;
+    case 'hemi':
+      return Hemi.createInstance;
     case 'hteth':
       return Hteth.createInstance;
     case 'lnbtc':
@@ -859,6 +865,8 @@ export function getCoinConstructor(coinName: string): CoinConstructor | undefine
       return Thash.createInstance;
     case 'thbar':
       return Thbar.createInstance;
+    case 'themi':
+      return Themi.createInstance;
     case 'ticp':
       return Ticp.createInstance;
     case 'tinitia':

@@ -101,6 +101,7 @@ import {
   FLR_FEATURES,
   GENERIC_TOKEN_FEATURES,
   HBAR_FEATURES,
+  HEMI_FEATURES,
   ICP_FEATURES,
   INJECTIVE_FEATURES,
   IOTA_FEATURES,
@@ -1379,6 +1380,26 @@ export const allCoinsAndTokens = [
     UnderlyingAsset.OPETH,
     BaseUnit.ETH,
     OPETH_FEATURES
+  ),
+  account(
+    '9f5e1c3a-4d7b-48e2-b6f0-a1c2d3e4f567',
+    'hemi',
+    'Hemi Network',
+    Networks.main.hemi,
+    18,
+    UnderlyingAsset.HEMI,
+    BaseUnit.ETH,
+    HEMI_FEATURES
+  ),
+  account(
+    'a1b2c3d4-5e6f-4890-abcd-ef1234567890',
+    'themi',
+    'Testnet Hemi Network',
+    Networks.test.hemi,
+    18,
+    UnderlyingAsset.HEMI,
+    BaseUnit.ETH,
+    HEMI_FEATURES
   ),
   account(
     '53b1e350-f907-45ec-abf7-11d132547055',
