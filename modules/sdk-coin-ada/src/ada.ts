@@ -382,11 +382,11 @@ export class Ada extends BaseCoin {
       seed: params.seed,
     };
     const { address: senderAddr, accountId } = await this.getAdaAddressAndAccountId(addressParams);
-    const isUnsignedSweep = !params.userKey && !params.backupKey && !params.walletPassphrase;
-    // const isUnsignedSweep = !params.walletPassphrase;
+    // const isUnsignedSweep = !params.userKey && !params.backupKey && !params.walletPassphrase;
+    const isUnsignedSweep = !params.walletPassphrase;
     const { balance, utxoSet } = await this.getAddressInfo(senderAddr);
     if (balance <= 0) {
-      throw new Error('Did not find address with funds to recover');
+      throw new Error('Did not find address with funds to recover.');
     }
 
     // first build the unsigned txn
@@ -561,7 +561,7 @@ export class Ada extends BaseCoin {
       } catch (e) {
         // Skip addresses with no funds or insufficient funds (< 1 ADA)
         if (
-          e.message === 'Did not find address with funds to recover' ||
+          e.message === 'Did not find address with funds to recover.' ||
           e.message.startsWith('Insufficient funds to recover')
         ) {
           // console.log(`[ADA recoverConsolidations] Skipping address at index ${i}: ${e.message}`);
