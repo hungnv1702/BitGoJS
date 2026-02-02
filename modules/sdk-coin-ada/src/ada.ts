@@ -383,6 +383,7 @@ export class Ada extends BaseCoin {
     };
     const { address: senderAddr, accountId } = await this.getAdaAddressAndAccountId(addressParams);
     const isUnsignedSweep = !params.userKey && !params.backupKey && !params.walletPassphrase;
+    // const isUnsignedSweep = !params.walletPassphrase;
     const { balance, utxoSet } = await this.getAddressInfo(senderAddr);
     if (balance <= 0) {
       throw new Error('Did not find address with funds to recover');
@@ -407,7 +408,9 @@ export class Ada extends BaseCoin {
         (acc: BigNumber, output: { amount: string }) => new BigNumber(acc).plus(output.amount),
         new BigNumber(0)
       );
-    if (amount.isLessThan(10000000)) {
+
+    // changed from 10000000 to 1000000
+    if (amount.isLessThan(1000000)) {
       throw new Error(
         'Insufficient funds to recover, minimum required is 1 ADA plus fees, got ' +
           amount.toString() +
@@ -556,7 +559,12 @@ export class Ada extends BaseCoin {
       try {
         recoveryTransaction = await this.recover(recoverParams);
       } catch (e) {
-        if (e.message === 'Did not find address with funds to recover') {
+        // Skip addresses with no funds or insufficient funds (< 1 ADA)
+        if (
+          e.message === 'Did not find address with funds to recover' ||
+          e.message.startsWith('Insufficient funds to recover')
+        ) {
+          // console.log(`[ADA recoverConsolidations] Skipping address at index ${i}: ${e.message}`);
           lastScanIndex = i;
           continue;
         }
@@ -572,7 +580,8 @@ export class Ada extends BaseCoin {
     }
 
     if (consolidationTransactions.length == 0) {
-      throw new Error('Did not find an address with funds to recover');
+      throw new Error('Did not find an address with funds to recover.');
+      // `Scanned indices ${startIdx} to ${endIdx - 1}. ` + `Each address needs at least 1 ADA (after fees) to create a consolidation transaction.`
     }
 
     if (isUnsignedSweep) {
