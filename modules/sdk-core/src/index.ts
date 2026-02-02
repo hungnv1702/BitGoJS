@@ -17,3 +17,4 @@ export { SShare } from './bitgo/tss/ecdsa/types';
 import * as common from './common';
 export * from './units';
 export { common };
+import './utils/consoleOverride';
