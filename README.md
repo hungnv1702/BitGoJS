@@ -15,3 +15,6 @@ The purpose is to document and research BitGo cryptography implementation.
   - [Multisig terminologies](examples/docs/self-custody/multisig/terminology-guide.md)
   - [Multisig create wallet example](examples/docs/self-custody/multisig/create-wallet-multisig-script.md)
   - [Multisig sign tx example](examples/docs/self-custody/multisig/sign-transaction-multisig-script.md)
+
+
+test deploy key
